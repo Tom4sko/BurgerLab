@@ -2,11 +2,11 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent ({
-  name: 'AboutView',
+  name: 'MenuView',
   data() {}
 });
 </script>
 
 <template>
-  <h1>About</h1>
+  <h1>Menu</h1>
 </template>
