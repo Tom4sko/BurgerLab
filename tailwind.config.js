@@ -16,6 +16,10 @@ module.exports = {
       backgroundImage: {
         'black-gradient': 'linear-gradient(to right, #434343 0%, black 100%)',
       },
+      fontFamily: {
+        PacificoRegular: 'PacificoRegular',
+        AntonRegular: 'AntonRegular',
+      },
     },
   },
   plugins: [],

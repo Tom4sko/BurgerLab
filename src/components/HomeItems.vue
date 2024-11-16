@@ -2,8 +2,8 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-    name: 'HomeItems',
-    data() {}
+  name: 'HomeItems',
+  data() {},
 });
 </script>
 
