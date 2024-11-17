@@ -12,7 +12,7 @@
 
 <template>
   <footer class="relative bottom-0 w-full h-auto bg-orange-primary rounded-tl-3xl rounded-tr-3xl">
-    <div class="px-5 md:px-24 py-5 md:py-8 flex flex-col md:flex-row justify-center items-center md:justify-between">
+    <div class="px-12 md:px-24 lg:px-44 py-5 md:py-8 flex flex-col md:flex-row justify-center items-center md:justify-between">
       <img src="../assets/logo.png" alt="logo" class="w-24 h-24 rounded-full border-4 border-white shadow-lg" />
       <div>
         <h3 class="text-2xl text-black-primary font-bold font-AntonRegular text-center md:text-left mt-5 md:mt-0">- Navigation -</h3>
