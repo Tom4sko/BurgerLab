@@ -37,7 +37,7 @@ export default defineComponent({
             <RouterLink to="/about" class="h-full flex flex-row justify-center items-center px-0 sm:px-2 hover:bg-orange-primary">About</RouterLink>
             <div class="h-full flex flex-row justify-center items-center">
               <div class="relative w-16 h-16 bg-gray-secondary rounded-full overflow-hidden">
-                <img src="../assets/logo.png" alt="Burger" class="object-cover w-full h-full" />
+                <img src="/logo.png" alt="Burger" class="object-cover w-full h-full" />
               </div>
             </div>
             <RouterLink to="/menu" class="h-full flex flex-row justify-center items-center px-0 sm:px-2 hover:bg-orange-primary">Menu</RouterLink>
