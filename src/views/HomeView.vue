@@ -34,7 +34,7 @@ export default defineComponent({
         <img src="/landing/onion.png" alt="onion-bg" class="h-40 md:h-80 w-40 md:w-80">
       </div>
       <div class="relative mt-20 lg:mt-32 xl:mt-44 mb-20">
-        <img src="../assets/burger.png" alt="burger-image" class="relative z-10 h-44 sm:h-52 md:h-64 lg:h-96 w-44 sm:w-52 md:w-64 lg:w-96">
+        <img src="/burger.png" alt="burger-image" class="relative z-10 h-44 sm:h-52 md:h-64 lg:h-96 w-44 sm:w-52 md:w-64 lg:w-96">
         <h1 class="text-light-primary font-PacificoRegular scale-y-150 text-[60px] sm:text-[120px] md:text-[160px] lg:text-[160px] xl:text-[200px] z-0 absolute top-[30%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           BurgerLab
         </h1>

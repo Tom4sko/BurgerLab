@@ -41,7 +41,7 @@ export default defineComponent({
   <div class="relative h-[500px]w-auto md:w-[440px] lg:w-[350px] xl:w-[290px] 2xl:w-[350px] bg-transparent hover:translate-x-5 hover:-rotate-3 hover:scale-105 transition-all duration-300 ease-in-out group">
       <div class="flex flex-col">
         <div class="flex justify-center">
-          <img src="../assets/burger.png" alt="" class="h-44 w-44 transition-transform duration-300 ease-in-out group-hover:scale-125">
+          <img src="/burger.png" alt="" class="h-44 w-44 transition-transform duration-300 ease-in-out group-hover:scale-125">
         </div>
         <div class="flex flex-row justify-between my-2">
           <h3 class="text-light-primary font-AntonRegular text-2xl">{{ itemName }}</h3>
