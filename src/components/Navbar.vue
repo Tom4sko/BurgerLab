@@ -1,13 +1,30 @@
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 import { RouterLink, RouterView } from 'vue-router';
+import { Icon } from '@iconify/vue';
 
 export default defineComponent({
-  
   name: 'Navbar',
   components: {
     RouterLink,
     RouterView,
+    Icon
+  },
+  setup() {
+    const isModalOpen = ref(false);
+
+    const openModal = () => {
+      isModalOpen.value = true;
+    };
+    const closeModal = () => {
+      isModalOpen.value = false;
+    };
+
+    return {
+      isModalOpen,
+      openModal,
+      closeModal,
+    };
   },
 });
 </script>
@@ -24,9 +41,19 @@ export default defineComponent({
               </div>
             </div>
             <RouterLink to="/menu" class="h-full flex flex-row justify-center items-center px-0 sm:px-2 hover:bg-orange-primary">Menu</RouterLink>
-            <RouterLink to="/support" class="h-full flex flex-row justify-center items-center px-0 sm:px-2 hover:bg-orange-primary">Support</RouterLink>
+            <button @click="openModal" class="h-full flex flex-row justify-center items-center px-0 sm:px-2 hover:bg-orange-primary">Cart <Icon icon="mdi:cart-outline" /></button>
         </nav>
     </div>
   </header>
+
+  <div v-if="isModalOpen" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[9999]">
+    <div class="bg-white p-6 rounded-lg w-11/12 sm:w-1/3">
+      <h2 class="text-2xl font-bold mb-4">test</h2>
+      <p class="text-lg mb-4">test2</p>
+      <button @click="closeModal" class="bg-orange-primary text-white px-4 py-2 rounded-lg">Close</button>
+    </div>
+  </div>
+
   <RouterView />
 </template>
+
