@@ -35,7 +35,7 @@ export default defineComponent ({
     <div class="flex flex-row items-center justify-center">
       <p class="text-center max-w-[700px] text-gray-secondary mb-10 mt-3 px-12 z-20">Our dishes are made with fresh ingredients and a passion for traditional flavors. Each meal is carefully crafted to offer a unique experience that delights your taste buds.</p>
     </div>
-    <div class="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-16 px-12 md:px-24 lg:px-44 md:place-items-center mb-20">
+    <div class="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-24 px-12 md:px-24 lg:px-44 md:place-items-center mb-20 w-full">
       <MenuCards :itemName="'Cheese Royale'" :itemDescription="itemDescription1" :itemPrice="'12\.99'" :itemWeight="'250'" :itemTime="'20'" :itemMilk="'diary free'" />
       <MenuCards :itemName="'The Stackmaster'" :itemDescription="itemDescription2" :itemPrice="'14\.99'" :itemWeight="'320'" :itemTime="'30'" :itemMilk="'diary free'"  />
       <MenuCards :itemName="'Chicken Deluxe'" :itemDescription="itemDescription3" :itemPrice="'10\.99'" :itemWeight="'270'" :itemTime="'20'" :itemMilk="'dairy free'"  />
