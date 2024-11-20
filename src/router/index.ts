@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import MenuView from '../views/MenuView.vue'
-import SupportView from '../views/SupportView.vue'
 import ContactView from '../views/ContactView.vue'
+import ErrorView from '../views/ErrorView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -23,10 +23,16 @@ const router = createRouter({
       component: MenuView,
     },
     {
-      path: '/support',
-      name: 'support',
-      component: SupportView,
-    }
+      path: '/menu/:productName',
+      name: 'menu-product',
+      component: () => import('../views/MenuDetailView.vue'),
+      props: true,
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'error',
+      component: ErrorView,
+    },
   ],
 })
 

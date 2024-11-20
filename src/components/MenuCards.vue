@@ -32,10 +32,14 @@ export default defineComponent({
         type: String,
         require: true,
       }
+    },
+    methods: {
+      goToProduct() {
+        this.$router.push(`/menu/${this.itemName}`);
     }
+  }
 });
 </script>
-
 
 <template>
   <div class="relative h-[500px]w-auto md:w-[440px] lg:w-[350px] xl:w-[290px] 2xl:w-[350px] bg-transparent hover:translate-x-5 hover:-rotate-3 hover:scale-105 transition-all duration-300 ease-in-out group">
@@ -63,7 +67,7 @@ export default defineComponent({
           </div>
         </div>
         <div class="flex items-center justify-left">
-          <button type="button" class="bg-orange-primary px-5 py-2 rounded-3xl font-AntonRegular hover:bg-orange-500 hover:scale-110 hover:shadow-lg transition-all duration-300 ease-in-out">
+          <button type="button" @click="goToProduct" class="bg-orange-primary px-5 py-2 rounded-3xl font-AntonRegular hover:bg-orange-500 hover:scale-110 hover:shadow-lg transition-all duration-300 ease-in-out">
             Add To Cart
           </button>
         </div>

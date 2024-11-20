@@ -14,6 +14,11 @@ export default defineComponent({
       burgerImage3: './landing/burger3.png',
       burgerImage4: './landing/burger4.png'
     };
+  },
+  methods: {
+    redirect() {
+      this.$router.push('/menu');
+    }
   }
 });
 </script>
@@ -43,7 +48,7 @@ export default defineComponent({
         <HomeItems :img-url="burgerImage1" class="hidden md:block" />
         <HomeItems :img-url="burgerImage2" class="hidden md:block" />
         <div class="grid place-items-center">
-          <button type="button" class="z-20 uppercase text-black-primary bg-orange-primary px-12 py-3 rounded-3xl font-bold font-AntonRegular text-2xl md:text-3xl hover:bg-gray-primary hover:text-light-primary hover:scale-105 ease-in transition-all">
+          <button type="button" @click="redirect" class="z-20 uppercase text-black-primary bg-orange-primary px-12 py-3 rounded-3xl font-bold font-AntonRegular text-2xl md:text-3xl hover:bg-gray-primary hover:text-light-primary hover:scale-105 ease-in transition-all">
             Order Now
           </button>
         </div>

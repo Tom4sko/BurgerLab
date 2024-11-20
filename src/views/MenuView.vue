@@ -1,11 +1,13 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import MenuCards from '../components/MenuCards.vue';
+import MenuDetailView from './MenuDetailView.vue';
 
 export default defineComponent ({
   name: 'MenuView',
   components: {
-    MenuCards
+    MenuCards,
+    MenuDetailView
   },
   data() {
     return {
