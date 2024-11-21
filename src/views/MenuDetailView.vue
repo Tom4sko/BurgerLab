@@ -27,7 +27,7 @@ export default defineComponent({
       <img src="../assets/plus.svg">
     </div>
     <div class="absolute -bottom-7 right-0 hidden lg:block">
-      <img src="/menudetails/lines.png" class="lg:size-96 xl:size-[700px]">
+      <img src="/menudetails/lines.png" class="lg:size-96 xl:size-[500px]">
     </div>
     <div v-if="burgerData">
       <div class="px-12 md:px-24 lg:px-44 flex flex-col-reverse lg:flex-row flex-1 gap-20 lg:gap-40 mb-20 lg:mb-10">
@@ -84,11 +84,14 @@ export default defineComponent({
           </div>
         </div>
         <div class="flex-1">
-          <h1 class="font-PacificoRegular text-light-primary text-4xl sm:text-7xl font-bold mt-20 mb-7">{{ burgerData.itemName }}</h1>
+          <h1 class="font-PacificoRegular text-light-primary text-4xl sm:text-7xl font-bold mt-20 mb-7 text-wrap break-words leading-10">
+            {{ burgerData.itemName.split(' ').slice(0, -1).join(' ') }}
+            <span class="inline-block mt-2">{{ burgerData.itemName.split(' ').slice(-1).join(' ') }}</span>
+          </h1>
           <span class="text-orange-primary text-8xl font-AntonRegular">{{ burgerData.itemPrice }}$</span>
           <p class="text-gray-secondary my-10">{{  burgerData.itemDescription }}</p>
           <div class="flex items-center justify-center md:justify-start w-full">
-            <button type="button" class="bg-orange-primary text-3xl px-8 py-3 rounded-3xl font-AntonRegular hover:bg-orange-500 hover:scale-110 hover:shadow-lg transition-all duration-300 ease-in-out">
+            <button type="button" class="z-20 bg-orange-primary text-3xl px-8 py-3 rounded-3xl font-AntonRegular hover:bg-orange-500 hover:scale-110 hover:shadow-lg transition-all duration-300 ease-in-out">
               Add To Cart
             </button>
           </div>

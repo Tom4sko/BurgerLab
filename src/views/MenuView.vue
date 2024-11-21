@@ -41,7 +41,7 @@ export default defineComponent ({
       <MenuCards :itemName="'Cheese Royale'" :itemDescription="itemDescription1" :itemPrice="'12\.99'" :itemWeight="'250'" :itemTime="'20'" :itemMilk="'diary free'" />
       <MenuCards :itemName="'The Stackmaster'" :itemDescription="itemDescription2" :itemPrice="'14\.99'" :itemWeight="'320'" :itemTime="'30'" :itemMilk="'diary free'"  />
       <MenuCards :itemName="'Chicken Deluxe'" :itemDescription="itemDescription3" :itemPrice="'10\.99'" :itemWeight="'270'" :itemTime="'20'" :itemMilk="'dairy free'"  />
-      <MenuCards :itemName="'Sea Breeze Burger'" :itemDescription="itemDescription4" :itemPrice="'9\.99'" :itemWeight="'220'" :itemTime="'15'" :itemMilk="'dairy free'"  />
+      <MenuCards :itemName="'Breeze Burger'" :itemDescription="itemDescription4" :itemPrice="'9\.99'" :itemWeight="'220'" :itemTime="'15'" :itemMilk="'dairy free'"  />
       <MenuCards :itemName="'The Melt'" :itemDescription="itemDescription5" :itemPrice="'10\.99'" :itemWeight="'250'" :itemTime="'25'" :itemMilk="'diary free'"  />
       <MenuCards :itemName="'Grillhouse Special'" :itemDescription="itemDescription6" :itemPrice="'13\.99'" :itemWeight="'320'" :itemTime="'30'" :itemMilk="'diary free'"  />
     </div>
