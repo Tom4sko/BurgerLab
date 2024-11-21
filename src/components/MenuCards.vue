@@ -1,6 +1,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { Icon } from '@iconify/vue';
+import { useBurgerStore } from '../stores/burger';
 
 export default defineComponent({
     name: 'MenuCards',
@@ -10,34 +11,47 @@ export default defineComponent({
     props: {
       itemName: {
         type: String,
-        require: true,
+        required: true,
       },
       itemPrice: {
         type: String,
-        require: true,
+        required: true,
       },
       itemWeight: {
         type: String,
-        require: true,
+        required: true,
       },
       itemTime: {
         type: String,
-        require: true,
+        required: true,
       },
       itemMilk: {
         type: String,
-        require: true,
+        required: true,
       },
       itemDescription: {
         type: String,
-        require: true,
+        required: true,
       }
     },
     methods: {
       goToProduct() {
-        this.$router.push(`/menu/${this.itemName}`);
+        const burgerStore = useBurgerStore();
+        burgerStore.setBurger({
+          itemName: this.itemName,
+          itemPrice: this.itemPrice,
+          itemWeight: this.itemWeight,
+          itemTime: this.itemTime,
+          itemMilk: this.itemMilk,
+          itemDescription: this.itemDescription,
+        });
+
+        this.$router.push({
+          name: 'menu-product',
+          params: { productName: this.itemName },
+        });
+      },
     }
-  }
 });
 </script>
 
@@ -68,7 +82,7 @@ export default defineComponent({
         </div>
         <div class="flex items-center justify-left">
           <button type="button" @click="goToProduct" class="bg-orange-primary px-5 py-2 rounded-3xl font-AntonRegular hover:bg-orange-500 hover:scale-110 hover:shadow-lg transition-all duration-300 ease-in-out">
-            Add To Cart
+            Explore More
           </button>
         </div>
       </div>

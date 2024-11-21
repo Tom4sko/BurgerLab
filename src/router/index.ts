@@ -21,6 +21,7 @@ const router = createRouter({
       path: '/menu',
       name: 'menu',
       component: MenuView,
+      props: true,
     },
     {
       path: '/menu/:productName',
