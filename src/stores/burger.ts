@@ -18,4 +18,10 @@ type Burger = {
   itemTime: string;
   itemMilk: string;
   itemDescription: string;
+  itemNutrient: string;
+  itemEnergy: string;
+  itemFat: string;
+  itemSaturatedFat: string;
+  itemProtein: string;
+  itemSalt: string;
 };

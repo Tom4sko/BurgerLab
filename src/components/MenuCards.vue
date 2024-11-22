@@ -32,6 +32,30 @@ export default defineComponent({
       itemDescription: {
         type: String,
         required: true,
+      },
+      itemNutrient: {
+        type: String,
+        required: true,
+      },
+      itemEnergy: {
+        type: String,
+        required: true,
+      },
+      itemFat: {
+        type: String,
+        required: true,
+      },
+      itemSaturatedFat: {
+        type: String,
+        required: true,
+      },
+      itemProtein: {
+        type: String,
+        required: true,
+      },
+      itemSalt: {
+        type: String,
+        required: true,
       }
     },
     methods: {
@@ -44,6 +68,12 @@ export default defineComponent({
           itemTime: this.itemTime,
           itemMilk: this.itemMilk,
           itemDescription: this.itemDescription,
+          itemNutrient: this.itemNutrient,
+          itemEnergy: this.itemEnergy,
+          itemFat: this.itemFat,
+          itemSaturatedFat: this.itemSaturatedFat,
+          itemProtein: this.itemProtein,
+          itemSalt: this.itemSalt
         });
 
         this.$router.push({

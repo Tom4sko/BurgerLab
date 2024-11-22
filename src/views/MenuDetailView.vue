@@ -55,29 +55,29 @@ export default defineComponent({
               <thead>
                 <tr>
                   <th class="text-left text-lg font-medium text-orange-primary">Nutrient</th>
-                  <th class="text-left text-lg font-medium text-gray-secondary">Amount per 100g</th>
+                  <th class="text-left text-lg font-medium text-gray-secondary">Amount per {{ burgerData.itemNutrient}}g</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td class="py-2 text-orange-primary">Energy</td>
-                  <td class="py-2 text-gray-secondary">50 kcal</td>
+                  <td class="py-2 text-gray-secondary">{{ burgerData.itemEnergy }} kcal</td>
                 </tr>
                 <tr>
                   <td class="py-2 text-orange-primary">Fat</td>
-                  <td class="py-2 text-gray-secondary">50g</td>
+                  <td class="py-2 text-gray-secondary">{{ burgerData.itemFat }}g</td>
                 </tr>
                 <tr>
                   <td class="py-2 text-orange-primary">Saturated Fat</td>
-                  <td class="py-2 text-gray-secondary">50g</td>
+                  <td class="py-2 text-gray-secondary">{{ burgerData.itemSaturatedFat }}g</td>
                 </tr>
                 <tr>
                   <td class="py-2 text-orange-primary">Protein</td>
-                  <td class="py-2 text-gray-secondary">50g</td>
+                  <td class="py-2 text-gray-secondary">{{ burgerData.itemProtein }}g</td>
                 </tr>
                 <tr>
                   <td class="py-2 text-orange-primary">Salt</td>
-                  <td class="py-2 text-gray-secondary">50g</td>
+                  <td class="py-2 text-gray-secondary">{{ burgerData.itemSalt }}g</td>
                 </tr>
               </tbody>
             </table>

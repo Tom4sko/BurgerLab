@@ -38,12 +38,90 @@ export default defineComponent ({
       <p class="text-center max-w-[700px] text-gray-secondary mb-10 mt-3 px-12 z-20">Our dishes are made with fresh ingredients and a passion for traditional flavors. Each meal is carefully crafted to offer a unique experience that delights your taste buds.</p>
     </div>
     <div class="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-24 px-12 md:px-24 lg:px-44 md:place-items-center mb-20 w-full">
-      <MenuCards :itemName="'Cheese Royale'" :itemDescription="itemDescription1" :itemPrice="'12\.99'" :itemWeight="'250'" :itemTime="'20'" :itemMilk="'diary free'" />
-      <MenuCards :itemName="'The Stackmaster'" :itemDescription="itemDescription2" :itemPrice="'14\.99'" :itemWeight="'320'" :itemTime="'30'" :itemMilk="'diary free'"  />
-      <MenuCards :itemName="'Chicken Deluxe'" :itemDescription="itemDescription3" :itemPrice="'10\.99'" :itemWeight="'270'" :itemTime="'20'" :itemMilk="'dairy free'"  />
-      <MenuCards :itemName="'Breeze Burger'" :itemDescription="itemDescription4" :itemPrice="'9\.99'" :itemWeight="'220'" :itemTime="'15'" :itemMilk="'dairy free'"  />
-      <MenuCards :itemName="'The Melt'" :itemDescription="itemDescription5" :itemPrice="'10\.99'" :itemWeight="'250'" :itemTime="'25'" :itemMilk="'diary free'"  />
-      <MenuCards :itemName="'Grillhouse Special'" :itemDescription="itemDescription6" :itemPrice="'13\.99'" :itemWeight="'320'" :itemTime="'30'" :itemMilk="'diary free'"  />
+      <MenuCards 
+        :itemName="'Cheese Royale'" 
+        :itemDescription="itemDescription1" 
+        :itemPrice="'12.99'" 
+        :itemWeight="'250'" 
+        :itemTime="'20'" 
+        :itemMilk="'dairy free'" 
+        :itemNutrient="'120'" 
+        :itemEnergy="'700'" 
+        :itemFat="'50'" 
+        :itemSaturatedFat="'140'" 
+        :itemProtein="'60'" 
+        :itemSalt="'150'" 
+      />
+      <MenuCards 
+        :itemName="'The Stackmaster'" 
+        :itemDescription="itemDescription2" 
+        :itemPrice="'14.99'" 
+        :itemWeight="'320'" 
+        :itemTime="'30'" 
+        :itemMilk="'dairy free'" 
+        :itemNutrient="'130'" 
+        :itemEnergy="'750'" 
+        :itemFat="'55'" 
+        :itemSaturatedFat="'150'" 
+        :itemProtein="'65'" 
+        :itemSalt="'160'" 
+      />
+      <MenuCards 
+        :itemName="'Chicken Deluxe'" 
+        :itemDescription="itemDescription3" 
+        :itemPrice="'10.99'" 
+        :itemWeight="'270'" 
+        :itemTime="'20'" 
+        :itemMilk="'dairy free'" 
+        :itemNutrient="'110'" 
+        :itemEnergy="'680'" 
+        :itemFat="'48'" 
+        :itemSaturatedFat="'140'" 
+        :itemProtein="'60'" 
+        :itemSalt="'140'" 
+      />
+      <MenuCards 
+        :itemName="'Breeze Burger'" 
+        :itemDescription="itemDescription4" 
+        :itemPrice="'9.99'" 
+        :itemWeight="'220'" 
+        :itemTime="'15'" 
+        :itemMilk="'dairy free'" 
+        :itemNutrient="'100'" 
+        :itemEnergy="'650'" 
+        :itemFat="'45'" 
+        :itemSaturatedFat="'140'" 
+        :itemProtein="'55'" 
+        :itemSalt="'130'" 
+      />
+      <MenuCards 
+        :itemName="'The Melt'" 
+        :itemDescription="itemDescription5" 
+        :itemPrice="'10.99'" 
+        :itemWeight="'250'" 
+        :itemTime="'25'" 
+        :itemMilk="'dairy free'" 
+        :itemNutrient="'105'" 
+        :itemEnergy="'700'" 
+        :itemFat="'50'" 
+        :itemSaturatedFat="'140'" 
+        :itemProtein="'60'" 
+        :itemSalt="'150'" 
+      />
+      <MenuCards 
+        :itemName="'Grillhouse Special'" 
+        :itemDescription="itemDescription6" 
+        :itemPrice="'13.99'" 
+        :itemWeight="'320'" 
+        :itemTime="'30'" 
+        :itemMilk="'dairy free'" 
+        :itemNutrient="'115'" 
+        :itemEnergy="'720'" 
+        :itemFat="'52'" 
+        :itemSaturatedFat="'145'" 
+        :itemProtein="'62'" 
+        :itemSalt="'155'" 
+      />
     </div>
   </section>
 </template>
