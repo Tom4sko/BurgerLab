@@ -1,22 +1,32 @@
 <script lang="ts">
 import { useRouter } from 'vue-router';
 import { useBurgerStore } from '../stores/burger';
+import { useCartStore } from '../stores/cart';
 import { defineComponent } from 'vue';
 import { Icon } from '@iconify/vue';
 
 export default defineComponent({
   name: 'MenuDetailView',
   components: {
-    Icon
+    Icon,
   },
   setup() {
     const burgerStore = useBurgerStore();
+    const cartStore = useCartStore();
     const router = useRouter();
 
     if (!burgerStore.selectedBurger) {
       router.push('/menu');
     }
-    return { burgerData: burgerStore.selectedBurger };
+
+    const addToCart = () => {
+      if (burgerStore.selectedBurger) {
+        cartStore.addItem(burgerStore.selectedBurger);
+        alert('Burger bol pridaný do košíka!');
+      }
+    };
+
+    return { burgerData: burgerStore.selectedBurger, addToCart };
   },
 });
 </script>
@@ -55,7 +65,7 @@ export default defineComponent({
               <thead>
                 <tr>
                   <th class="text-left text-lg font-medium text-orange-primary">Nutrient</th>
-                  <th class="text-left text-lg font-medium text-gray-secondary">Amount per {{ burgerData.itemNutrient}}g</th>
+                  <th class="text-left text-lg font-medium text-gray-secondary">Amount per {{ burgerData.itemNutrient }}g</th>
                 </tr>
               </thead>
               <tbody>
@@ -89,9 +99,13 @@ export default defineComponent({
             <span class="inline-block mt-2">{{ burgerData.itemName.split(' ').slice(-1).join(' ') }}</span>
           </h1>
           <span class="text-orange-primary text-8xl font-AntonRegular">{{ burgerData.itemPrice }}$</span>
-          <p class="text-gray-secondary my-10">{{  burgerData.itemDescription }}</p>
+          <p class="text-gray-secondary my-10">{{ burgerData.itemDescription }}</p>
           <div class="flex items-center justify-center md:justify-start w-full">
-            <button type="button" class="z-20 bg-orange-primary text-3xl px-8 py-3 rounded-3xl font-AntonRegular hover:bg-orange-500 hover:scale-110 hover:shadow-lg transition-all duration-300 ease-in-out">
+            <button
+              @click="addToCart"
+              type="button"
+              class="z-20 bg-orange-primary text-3xl px-8 py-3 rounded-3xl font-AntonRegular hover:bg-orange-500 hover:scale-110 hover:shadow-lg transition-all duration-300 ease-in-out"
+            >
               Add To Cart
             </button>
           </div>
@@ -103,4 +117,3 @@ export default defineComponent({
     </div>
   </section>
 </template>
-

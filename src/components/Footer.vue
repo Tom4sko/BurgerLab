@@ -21,13 +21,10 @@
             <router-link to="/" class="font-AntonRegular font-semibold text-xl text-gray-secondary hover:text-gray-primary hover:underline cursor-pointer transition duration-300">Home</router-link>
           </li>
           <li>
-            <router-link to="/about" class="font-AntonRegular font-semibold text-xl text-gray-secondary hover:text-gray-primary hover:underline cursor-pointer transition duration-300">About</router-link>
+            <router-link to="/contact" class="font-AntonRegular font-semibold text-xl text-gray-secondary hover:text-gray-primary hover:underline cursor-pointer transition duration-300">Contact</router-link>
           </li>
           <li>
             <router-link to="/menu" class="font-AntonRegular font-semibold text-xl text-gray-secondary hover:text-gray-primary hover:underline cursor-pointer transition duration-300">Menu</router-link>
-          </li>
-          <li>
-            <router-link to="/support" class="font-AntonRegular font-semibold text-xl text-gray-secondary hover:text-gray-primary hover:underline cursor-pointer transition duration-300">Support</router-link>
           </li>
         </ul>
       </div>
