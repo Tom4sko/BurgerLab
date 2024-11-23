@@ -127,7 +127,7 @@ export default defineComponent ({
     </div>
   </section>
   <section>
-    <div class="px-12 md:px-24 lg:px-44">
+    <div class="px-12 md:px-24 lg:px-44 mb-20">
       <MakeYourWish />
     </div>
   </section>

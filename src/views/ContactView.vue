@@ -63,7 +63,7 @@ export default defineComponent({
     </div>
   </section>
   
-  <section class="bg-black-gradient px-12 md:px-24 lg:px-44 py-5 md:py-8 mb-16 lg:mb-0 relative">
+  <section class="bg-black-gradient px-12 md:px-24 lg:px-44 py-5 md:py-8 mb-16 lg:mb-0 relative overflow-x-hidden">
     <div class="absolute bottom-44 -right-[120px] block z-10">
       <img src="../assets/plus.svg">
     </div>

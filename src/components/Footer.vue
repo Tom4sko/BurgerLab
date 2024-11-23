@@ -6,16 +6,21 @@
     name: 'Footer',
     components: {
       Icon
+    },
+    data() {
+      return {
+        currentYear: new Date().getFullYear()
+      };
     }
   });
 </script>
 
 <template>
   <footer class="relative bottom-0 w-full h-auto bg-orange-primary rounded-tl-3xl rounded-tr-3xl">
-    <div class="px-12 md:px-24 lg:px-44 py-5 md:py-8 flex flex-col md:flex-row justify-center items-center md:justify-between">
+    <div class="px-12 md:px-24 lg:px-44 py-2 md:py-3 flex flex-col md:flex-row justify-center items-center md:justify-between">
       <img src="/logo.png" alt="logo" class="w-24 h-24 rounded-full border-4 border-white shadow-lg" />
       <div>
-        <h3 class="text-2xl text-black-primary font-bold font-AntonRegular text-center md:text-left mt-5 md:mt-0">- Navigation -</h3>
+        <h3 class="text-2xl text-black-primary font-bold font-AntonRegular text-center mt-5 md:mt-0">- Navigation -</h3>
         <ul class="flex flex-row gap-4 mt-5 md:mt-0">
           <li>
             <router-link to="/" class="font-AntonRegular font-semibold text-xl text-gray-secondary hover:text-gray-primary hover:underline cursor-pointer transition duration-300">Home</router-link>
@@ -42,6 +47,11 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="flex flex-row justify-between text-black-primary px-12 md:px-24 lg:px-44 pb-5">
+      <p>Made by <b>Tomas Zeleňák</b></p>
+      <p class="font-AntonRegular">support@burgerlab.com</p>
+      <p>&copy; <b>{{ currentYear }}</b> All rights reserved.</p>
     </div>
   </footer>
 </template>
