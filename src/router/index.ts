@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import MenuView from '../views/MenuView.vue'
 import ContactView from '../views/ContactView.vue'
 import ErrorView from '../views/ErrorView.vue'
+import MakeYourWish from '../components/MakeYourWish.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,6 +28,12 @@ const router = createRouter({
       path: '/menu/:productName',
       name: 'menu-product',
       component: () => import('../views/MenuDetailView.vue'),
+      props: true,
+    },
+    {
+      path: '/makeyourwish',
+      name: 'make-your-wish',
+      component: MakeYourWish,
       props: true,
     },
     {

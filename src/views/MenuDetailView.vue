@@ -22,7 +22,7 @@ export default defineComponent({
     const addToCart = () => {
       if (burgerStore.selectedBurger) {
         cartStore.addItem(burgerStore.selectedBurger);
-        alert('Burger bol pridaný do košíka!');
+        alert('Burger has been added to shopping cart!');
       }
     };
 

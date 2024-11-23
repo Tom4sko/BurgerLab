@@ -1,18 +1,26 @@
+// cart.ts
 import { defineStore } from 'pinia';
 
 export const useCartStore = defineStore('cart', {
   state: () => ({
-    items: [] as Burger[],
+    items: JSON.parse(localStorage.getItem('cartItems') || '[]') as Burger[],
   }),
+
   actions: {
     addItem(burger: Burger) {
       this.items.push(burger);
+      this.saveCartToLocalStorage();
     },
     removeItem(index: number) {
       this.items.splice(index, 1);
+      this.saveCartToLocalStorage();
     },
     clearCart() {
       this.items = [];
+      this.saveCartToLocalStorage();
+    },
+    saveCartToLocalStorage() {
+      localStorage.setItem('cartItems', JSON.stringify(this.items));
     },
   },
 });

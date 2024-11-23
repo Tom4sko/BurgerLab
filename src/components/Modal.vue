@@ -19,7 +19,11 @@ export default defineComponent({
       cartStore.items.reduce((sum, item) => sum + parseFloat(item.itemPrice), 0)
     );
 
-    return { cartItems, totalPrice };
+    const removeItem = (index: number) => {
+      cartStore.removeItem(index);
+    };
+
+    return { cartItems, totalPrice, removeItem };
   },
   components: {
     Icon
@@ -33,7 +37,7 @@ export default defineComponent({
     class="fixed inset-0 bg-black-primary bg-opacity-50 flex justify-center items-center z-[9999]"
     @click.self="$emit('close')"
   >
-    <div class="relative bg-black-gradient p-6 rounded-lg w-11/12 sm:w-1/3">
+    <div class="relative bg-black-gradient p-6 rounded-lg w-11/12 sm:w-1/3 min-w-[300px] sm:min-w-[500px] xl:min-w-[600px]">
       <div class="flex justify-between items-center mb-4">
         <span @click="$emit('close')" class="text-orange-primary font-bold text-lg cursor-pointer">
           <Icon icon="material-symbols:close" class="size-7" />
@@ -48,8 +52,14 @@ export default defineComponent({
           :key="index"
           class="flex justify-between items-center py-2"
         >
-          <div>
+          <div class="inline-flex items-center">
             <span class="text-light-primary">{{ item.itemName }}</span>
+            <button 
+              @click="removeItem(index)"
+              class="ml-2 text-red-500 hover:text-red-700 font-bold mt-1"
+            >
+              <Icon icon="mdi:bin-outline" />
+            </button>
           </div>
           <div>
             <span class="text-orange-primary font-semibold font-AntonRegular">{{ item.itemPrice }}$</span>

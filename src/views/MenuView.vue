@@ -2,12 +2,14 @@
 import { defineComponent } from 'vue';
 import MenuCards from '../components/MenuCards.vue';
 import MenuDetailView from './MenuDetailView.vue';
+import MakeYourWish from '../components/MakeYourWish.vue';
 
 export default defineComponent ({
   name: 'MenuView',
   components: {
     MenuCards,
-    MenuDetailView
+    MenuDetailView,
+    MakeYourWish
   },
   data() {
     return {
@@ -122,6 +124,11 @@ export default defineComponent ({
         :itemProtein="'62'" 
         :itemSalt="'155'" 
       />
+    </div>
+  </section>
+  <section>
+    <div class="px-12 md:px-24 lg:px-44">
+      <MakeYourWish />
     </div>
   </section>
 </template>
