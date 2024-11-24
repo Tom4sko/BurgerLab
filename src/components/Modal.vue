@@ -12,12 +12,11 @@ export default defineComponent({
   emits: ['close'],
   setup() {
     const cartStore = useCartStore();
-
     const cartItems = computed(() => cartStore.items);
-
-    const totalPrice = computed(() =>
-      cartStore.items.reduce((sum, item) => sum + parseFloat(item.itemPrice), 0)
-    );
+    const totalPrice = computed(() => {
+      const total = cartStore.items.reduce((sum, item) => sum + parseFloat(item.itemPrice), 0);
+      return total.toFixed(2);
+    });
 
     const removeItem = (index: number) => {
       cartStore.removeItem(index);
