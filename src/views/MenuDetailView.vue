@@ -2,7 +2,7 @@
 import { useRouter } from 'vue-router';
 import { useBurgerStore } from '../stores/burger';
 import { useCartStore } from '../stores/cart';
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 import { Icon } from '@iconify/vue';
 
 export default defineComponent({
@@ -14,6 +14,7 @@ export default defineComponent({
     const burgerStore = useBurgerStore();
     const cartStore = useCartStore();
     const router = useRouter();
+    const cartMessage = ref('');
 
     if (!burgerStore.selectedBurger) {
       router.push('/menu');
@@ -22,14 +23,18 @@ export default defineComponent({
     const addToCart = () => {
       if (burgerStore.selectedBurger) {
         cartStore.addItem(burgerStore.selectedBurger);
-        alert('Burger has been added to shopping cart!');
+        cartMessage.value = 'Burger has been added to the shopping cart!';
+        setTimeout(() => {
+          cartMessage.value = '';
+        }, 3000);
       }
     };
 
-    return { burgerData: burgerStore.selectedBurger, addToCart };
+    return { burgerData: burgerStore.selectedBurger, addToCart, cartMessage };
   },
 });
 </script>
+
 
 <template>
   <section class="min-h-screen relative">
@@ -43,7 +48,7 @@ export default defineComponent({
       <div class="px-12 md:px-24 lg:px-44 flex flex-col-reverse lg:flex-row flex-1 gap-20 lg:gap-40 mb-20 lg:mb-10">
         <div class="flex-1 flex-col">
           <div class="flex justify-center mt-0 lg:mt-5">
-            <img src="/burger.png">
+            <img :src="burgerData.itemImage" alt="Burger Image">
           </div>
           <div class="flex flex-row gap-4 justify-between my-2">
             <div class="inline-flex items-center gap-1">
@@ -109,6 +114,7 @@ export default defineComponent({
               Add To Cart
             </button>
           </div>
+          <p v-if="cartMessage" class="mt-4 text-green-500 font-bold text-center">{{ cartMessage }}</p>
         </div>
       </div>
     </div>

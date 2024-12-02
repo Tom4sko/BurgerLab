@@ -25,7 +25,7 @@ export default defineComponent ({
         </div>
       </div>
       <div class="flex-1 w-full flex justify-center md:justify-end">
-        <img src="/public/makeyourwish/burger.gif" alt="makeawish-burger-gif" class="size-72 transform scale-x-[-1]">
+        <img src="/makeyourwish/burger.gif" alt="makeawish-burger-gif" class="size-72 transform scale-x-[-1]">
       </div>
     </div>
   </div>

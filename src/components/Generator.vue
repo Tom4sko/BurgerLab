@@ -1,9 +1,13 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { useCartStore } from '../stores/cart';
+import { Icon } from '@iconify/vue';
 
 export default defineComponent({
   name: 'Generator',
+  components: {
+    Icon
+  },
   data() {
     return {
       sliders: [
@@ -11,8 +15,17 @@ export default defineComponent({
           name: 'Bun',
           items: [
             { id: 1, name: 'Classic Bun', img: '/makeyourwish/bun1.png' },
-            { id: 2, name: 'Whole Grain Bun', img: '/makeyourwish/bun2.png' },
-            { id: 3, name: 'Gluten-Free Bun', img: '/makeyourwish/bun3.png' },
+            { id: 2, name: 'Sezam Bun', img: '/makeyourwish/bun2.png' },
+            { id: 3, name: 'Chocolate Bun', img: '/makeyourwish/bun3.png' },
+          ],
+          currentIndex: 0,
+        },
+        {
+          name: 'Sauce',
+          items: [
+            { id: 1, name: 'Mustard', img: '/makeyourwish/sauce1.png' },
+            { id: 2, name: 'Horseradish', img: '/makeyourwish/sauce2.png' },
+            { id: 3, name: 'Ketchup', img: '/makeyourwish/sauce3.png' },
           ],
           currentIndex: 0,
         },
@@ -21,16 +34,7 @@ export default defineComponent({
           items: [
             { id: 1, name: 'Beef Patty', img: '/makeyourwish/meat1.png' },
             { id: 2, name: 'Chicken Patty', img: '/makeyourwish/meat2.png' },
-            { id: 3, name: 'Veggie Patty', img: '/makeyourwish/meat3.png' },
-          ],
-          currentIndex: 0,
-        },
-        {
-          name: 'Sauce',
-          items: [
-            { id: 1, name: 'Ketchup', img: '/makeyourwish/sauce1.png' },
-            { id: 2, name: 'Mustard', img: '/makeyourwish/sauce2.png' },
-            { id: 3, name: 'Mayo', img: '/makeyourwish/sauce3.png' },
+            { id: 3, name: 'Salam Patty', img: '/makeyourwish/meat3.png' },
           ],
           currentIndex: 0,
         },
@@ -40,6 +44,7 @@ export default defineComponent({
         Patty: { id: 1, name: 'Beef Patty', img: '/makeyourwish/meat1.png' },
         Sauce: { id: 1, name: 'Ketchup', img: '/makeyourwish/sauce1.png' },
       } as Record<string, { id: number; name: string; img: string }>,
+      cartMessage: '',
     };
   },
   methods: {
@@ -85,18 +90,23 @@ export default defineComponent({
         itemSalt: '1g',
       };
       cartStore.addItem(selectedBurger);
+      this.cartMessage = 'Your burger was added to the shopping cart!';
+      setTimeout(() => {
+        this.cartMessage = '';
+      }, 3000);
     },
   },
 });
 </script>
 
+
 <template>
   <main class="w-full h-auto p-4">
     <div v-for="slider in sliders" :key="slider.name" class="mb-6">
-      <h2 class="text-xl font-bold mb-2 text-center">{{ slider.name }}</h2>
-      <div class="relative w-full flex justify-center items-center">
-        <button @click="prevImage(slider.name)" class="absolute left-4 bg-gray-700 text-white p-3 rounded-full">
-          &#8249;
+      <h2 class="text-2xl font-bold mb-2 text-center font-AntonRegular text-light-primary">{{ slider.name }}</h2>
+      <div class="relative w-full flex justify-center items-center min-h-[350px]">
+        <button @click="prevImage(slider.name)" class="absolute left-0 lg:left-[200px] bg-orange-primary text-light-primary p-3 rounded-full">
+          <Icon icon="icon-park-outline:left" class="size-7 text-gray-secondary" />
         </button>
         <div class="flex justify-center items-center">
           <img
@@ -104,21 +114,23 @@ export default defineComponent({
             :alt="slider.items[slider.currentIndex]?.name"
             class="w-[300px] h-auto object-contain rounded" />
         </div>
-        <button @click="nextImage(slider.name)" class="absolute right-4 bg-gray-700 text-white p-3 rounded-full">
-          &#8250;
+        <button @click="nextImage(slider.name)" class="absolute right-0 lg:right-[200px] bg-orange-primary text-light-primary p-3 rounded-full">
+          <Icon icon="icon-park-outline:right" class="size-7 text-gray-secondary" />
         </button>
       </div>
     </div>
-    <div class="mt-10 bg-white p-4 rounded shadow">
-      <h2 class="text-2xl font-bold mb-4 text-center">Your Burger</h2>
+    <div class="mt-10">
+      <h2 class="text-5xl font-bold mb-4 text-center font-PacificoRegular text-light-primary">Your Burger</h2>
       <ul>
-        <li v-for="(item, key) in selectedItems" :key="key" class="mb-2">
-          <strong>{{ key }}:</strong> {{ item.name }}
+        <li v-for="(item, key) in selectedItems" :key="key" class="mb-2 text-light-primary">
+          <strong class="text-orange-primary text-xl mr-2">{{ key }}:</strong>
+          {{ item.name }}
         </li>
       </ul>
-      <button @click="addToCart" class="px-4 py-2 bg-orange-500 text-white rounded mt-4 hover:bg-orange-600">
+      <button @click="addToCart" class=" mt-4 z-20 uppercase text-black-primary bg-orange-primary px-12 py-3 rounded-3xl font-bold font-AntonRegular text-xl hover:bg-gray-primary hover:text-light-primary hover:scale-105 ease-in transition-all">
         Add to Cart
       </button>
+      <p v-if="cartMessage" class="mt-4 text-center text-green-500 font-bold">{{ cartMessage }}</p>
     </div>
   </main>
 </template>

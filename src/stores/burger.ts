@@ -13,6 +13,7 @@ export const useBurgerStore = defineStore('burger', {
 
 type Burger = {
   itemName: string;
+  itemImage: string;
   itemPrice: string;
   itemWeight: string;
   itemTime: string;

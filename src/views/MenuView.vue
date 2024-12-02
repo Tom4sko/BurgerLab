@@ -41,7 +41,8 @@ export default defineComponent ({
     </div>
     <div class="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-24 px-12 md:px-24 lg:px-44 md:place-items-center mb-20 w-full">
       <MenuCards 
-        :itemName="'Cheese Royale'" 
+        :itemName="'Cheese Royale'"
+        :itemImage="'/landing/burger1.png'"
         :itemDescription="itemDescription1" 
         :itemPrice="'12.99'" 
         :itemWeight="'250'" 
@@ -55,7 +56,8 @@ export default defineComponent ({
         :itemSalt="'150'" 
       />
       <MenuCards 
-        :itemName="'The Stackmaster'" 
+        :itemName="'The Stackmaster'"
+        :itemImage="'/landing/burger4.png'" 
         :itemDescription="itemDescription2" 
         :itemPrice="'14.99'" 
         :itemWeight="'320'" 
@@ -69,7 +71,8 @@ export default defineComponent ({
         :itemSalt="'160'" 
       />
       <MenuCards 
-        :itemName="'Chicken Deluxe'" 
+        :itemName="'Chicken Deluxe'"
+        :itemImage="'/landing/burger5.png'" 
         :itemDescription="itemDescription3" 
         :itemPrice="'10.99'" 
         :itemWeight="'270'" 
@@ -83,7 +86,8 @@ export default defineComponent ({
         :itemSalt="'140'" 
       />
       <MenuCards 
-        :itemName="'Breeze Burger'" 
+        :itemName="'Breeze Burger'"
+        :itemImage="'/landing/burger2.png'"
         :itemDescription="itemDescription4" 
         :itemPrice="'9.99'" 
         :itemWeight="'220'" 
@@ -97,7 +101,8 @@ export default defineComponent ({
         :itemSalt="'130'" 
       />
       <MenuCards 
-        :itemName="'The Melt'" 
+        :itemName="'The Melt'"
+        :itemImage="'/landing/burger3.png'"
         :itemDescription="itemDescription5" 
         :itemPrice="'10.99'" 
         :itemWeight="'250'" 
@@ -111,7 +116,8 @@ export default defineComponent ({
         :itemSalt="'150'" 
       />
       <MenuCards 
-        :itemName="'Grillhouse Special'" 
+        :itemName="'Grillhouse Special'"
+        :itemImage="'/landing/burger6.png'"
         :itemDescription="itemDescription6" 
         :itemPrice="'13.99'" 
         :itemWeight="'320'" 
