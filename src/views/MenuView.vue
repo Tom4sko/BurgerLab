@@ -43,7 +43,6 @@
 </template>
 
 <script setup>
-import { defineComponent } from 'vue';
 import { useBurgerStore } from '@/stores/burger';
 import MenuCards from '@/components/MenuCards.vue';
 import MakeYourWish from '@/components/MakeYourWish.vue';
