@@ -1,28 +1,45 @@
 <script lang="ts">
+import { defineComponent, ref, computed, watchEffect } from 'vue';
 import { useRouter } from 'vue-router';
-import { useBurgerStore } from '../stores/burger';
+import { useBurgerStore, type Burger } from '../stores/burger';
 import { useCartStore } from '../stores/cart';
-import { defineComponent, ref } from 'vue';
 import { Icon } from '@iconify/vue';
+import MakeYourWish from '../components/MakeYourWish.vue';
 
 export default defineComponent({
   name: 'MenuDetailView',
   components: {
     Icon,
+    MakeYourWish,
   },
   setup() {
     const burgerStore = useBurgerStore();
     const cartStore = useCartStore();
     const router = useRouter();
+
     const cartMessage = ref('');
+    const burgerData = ref<Burger | null>(burgerStore.selectedBurger);
 
-    if (!burgerStore.selectedBurger) {
-      router.push('/menu');
-    }
+    console.log('Burger Data:', burgerData);
 
+    watchEffect(() => {
+      if (!burgerData.value) {
+        router.replace({ path: '/menu', query: { error: 'Burger not found' } });
+      }
+    });
+
+    const burgerNameParts = computed(() => {
+      if (burgerData.value) {
+        const parts = burgerData.value.itemName.split(' ');
+        return { main: parts.slice(0, -1).join(' '), last: parts.slice(-1).join(' ') };
+      }
+      return { main: '', last: '' };
+    });
+
+    // Add burger to cart
     const addToCart = () => {
-      if (burgerStore.selectedBurger) {
-        cartStore.addItem(burgerStore.selectedBurger);
+      if (burgerData.value) {
+        cartStore.addItem(burgerData.value);
         cartMessage.value = 'Burger has been added to the shopping cart!';
         setTimeout(() => {
           cartMessage.value = '';
@@ -30,11 +47,10 @@ export default defineComponent({
       }
     };
 
-    return { burgerData: burgerStore.selectedBurger, addToCart, cartMessage };
+    return { burgerData, addToCart, cartMessage, burgerNameParts };
   },
 });
 </script>
-
 
 <template>
   <section class="min-h-screen relative">
@@ -46,10 +62,12 @@ export default defineComponent({
     </div>
     <div v-if="burgerData">
       <div class="px-12 md:px-24 lg:px-44 flex flex-col-reverse lg:flex-row flex-1 gap-20 lg:gap-40 mb-20 lg:mb-10">
+        <!-- Image Section -->
         <div class="flex-1 flex-col">
           <div class="flex justify-center mt-0 lg:mt-5">
-            <img :src="burgerData.itemImage" alt="Burger Image">
+            <img :src="burgerData.itemImage" alt="Burger Image" class="max-w-full h-auto" />
           </div>
+          <!-- Info Section -->
           <div class="flex flex-row gap-4 justify-between my-2">
             <div class="inline-flex items-center gap-1">
               <Icon icon="game-icons:weight-scale" class="text-orange-primary size-7" />
@@ -64,6 +82,7 @@ export default defineComponent({
               <span class="text-light-primary font-semibold text-xl">{{ burgerData.itemMilk }}</span>
             </div>
           </div>
+          <!-- Nutritional Information -->
           <div class="mt-6">
             <h2 class="text-3xl font-semibold font-AntonRegular text-light-primary mb-4">Nutritional Information</h2>
             <table class="w-full table-auto border-separate border-spacing-2">
@@ -98,13 +117,15 @@ export default defineComponent({
             </table>
           </div>
         </div>
+        <!-- Details Section -->
         <div class="flex-1">
           <h1 class="font-PacificoRegular text-light-primary text-4xl sm:text-7xl font-bold mt-20 mb-7 text-wrap break-words leading-10">
-            {{ burgerData.itemName.split(' ').slice(0, -1).join(' ') }}
-            <span class="inline-block mt-2">{{ burgerData.itemName.split(' ').slice(-1).join(' ') }}</span>
+            {{ burgerNameParts.main }}
+            <span class="inline-block mt-2">{{ burgerNameParts.last }}</span>
           </h1>
           <span class="text-orange-primary text-8xl font-AntonRegular">{{ burgerData.itemPrice }}$</span>
           <p class="text-gray-secondary my-10">{{ burgerData.itemDescription }}</p>
+          <!-- Add to Cart -->
           <div class="flex items-center justify-center md:justify-start w-full">
             <button
               @click="addToCart"
@@ -118,8 +139,8 @@ export default defineComponent({
         </div>
       </div>
     </div>
-    <div v-else>
-      <p>Načítavanie...</p>
+    <div v-else class="flex justify-center items-center h-full">
+      <Icon icon="mdi:loading" class="animate-spin text-orange-primary size-10" />
     </div>
   </section>
 </template>

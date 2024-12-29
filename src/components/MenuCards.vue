@@ -4,89 +4,58 @@ import { Icon } from '@iconify/vue';
 import { useBurgerStore } from '../stores/burger';
 
 export default defineComponent({
-    name: 'MenuCards',
-    components: {
-        Icon
+  name: 'MenuCards',
+  components: {
+    Icon,
+  },
+  props: {
+    itemName: {
+      type: String,
+      required: true,
     },
-    props: {
-      itemName: {
-        type: String,
-        required: true,
-      },
-      itemImage: {
-        type: String,
-        require: true,
-      },
-      itemPrice: {
-        type: String,
-        required: true,
-      },
-      itemWeight: {
-        type: String,
-        required: true,
-      },
-      itemTime: {
-        type: String,
-        required: true,
-      },
-      itemMilk: {
-        type: String,
-        required: true,
-      },
-      itemDescription: {
-        type: String,
-        required: true,
-      },
-      itemNutrient: {
-        type: String,
-        required: true,
-      },
-      itemEnergy: {
-        type: String,
-        required: true,
-      },
-      itemFat: {
-        type: String,
-        required: true,
-      },
-      itemSaturatedFat: {
-        type: String,
-        required: true,
-      },
-      itemProtein: {
-        type: String,
-        required: true,
-      },
-      itemSalt: {
-        type: String,
-        required: true,
-      }
+    itemImage: {
+      type: String,
+      required: true,
     },
-    methods: {
-      goToProduct() {
-        const burgerStore = useBurgerStore();
-        burgerStore.setBurger({
-          itemName: this.itemName,
-          itemImage: this.itemImage,
-          itemPrice: this.itemPrice,
-          itemWeight: this.itemWeight,
-          itemTime: this.itemTime,
-          itemMilk: this.itemMilk,
-          itemDescription: this.itemDescription,
-          itemNutrient: this.itemNutrient,
-          itemEnergy: this.itemEnergy,
-          itemFat: this.itemFat,
-          itemSaturatedFat: this.itemSaturatedFat,
-          itemProtein: this.itemProtein,
-          itemSalt: this.itemSalt
-        });
-
-        this.$router.push({
-          name: 'menu-product',
-          params: { productName: this.itemName },
-        });
-      },
-    }
+    itemPrice: {
+      type: String,
+      required: true,
+    },
+    itemWeight: {
+      type: String,
+      required: true,
+    },
+    itemTime: {
+      type: String,
+      required: true,
+    },
+    itemMilk: {
+      type: String,
+      required: true,
+    },
+    itemDescription: {
+      type: String,
+      required: true,
+    },
+  },
+  methods: {
+    goToProduct() {
+      const burgerStore = useBurgerStore();
+      burgerStore.setBurger({
+        itemName: this.itemName,
+        itemImage: this.itemImage,
+        itemPrice: this.itemPrice,
+        itemWeight: this.itemWeight,
+        itemTime: this.itemTime,
+        itemMilk: this.itemMilk,
+        itemDescription: this.itemDescription,
+      });
+      this.$router.push({
+        name: 'menu-product',
+        params: { productName: this.itemName },
+      });
+    },
+  },
 });
 </script>
 
