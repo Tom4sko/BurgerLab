@@ -1,39 +1,9 @@
 # BurgerLab
 
-This template should help get you started developing with Vue 3 in Vite.
+BurgerLab is restaurant website idea created with Vue.
 
-## Recommended IDE Setup
+## Project Photo Preview
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+![burger](https://github.com/user-attachments/assets/b62e5234-ced7-426f-a084-996c464a3c2c)
+![burger2](https://github.com/user-attachments/assets/c71b21b0-a847-47b6-a4e3-9e98865312a1)
+![burger3](https://github.com/user-attachments/assets/2f567892-e2b5-48ef-85f8-3fe4de7013be)
