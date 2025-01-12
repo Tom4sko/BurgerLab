@@ -48,7 +48,7 @@
         </div>
       </div>
     </div>
-    <div class="flex flex-row justify-between text-black-primary px-12 md:px-24 lg:px-44 pb-5">
+    <div class="flex flex-col md:flex-row justify-center md:justify-between items-center text-black-primary px-12 md:px-24 lg:px-44 pb-5">
       <p>Made by <b>Tomas Zeleňák</b></p>
       <p class="font-AntonRegular">support@burgerlab.com</p>
       <p>&copy; <b>{{ currentYear }}</b> All rights reserved.</p>

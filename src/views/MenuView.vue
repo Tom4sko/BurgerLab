@@ -15,9 +15,25 @@
         Our dishes are made with fresh ingredients and a passion for traditional flavors. Each meal is carefully crafted to offer a unique experience that delights your taste buds.
       </p>
     </div>
+
+    <!-- Filtrovanie -->
+    <div class="flex flex-col md:flex-row items-center justify-between px-12 md:px-24 lg:px-44 mb-10">
+      <div class="flex flex-col md:flex-row items-center gap-4">
+        <label class="text-light-primary text-2xl font-PacificoRegular">Sort by:</label>
+        <select v-model="selectedFilter" class="px-4 py-2 rounded bg-gray-500 text-light-primary">
+          <option value="">All</option>
+          <option value="lowToHigh">Price: Low to High</option>
+          <option value="highToLow">Price: High to Low</option>
+          <option value="lowCalorie">Calories: Low to High</option>
+          <option value="quickPrep">Quick Preparation</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Zoznam kariet -->
     <div class="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-24 px-12 md:px-24 lg:px-44 md:place-items-center mb-20 w-full">
       <MenuCards
-        v-for="(burger, index) in burgers"
+        v-for="(burger, index) in filteredBurgers"
         :key="index"
         :itemName="burger.itemName"
         :itemImage="burger.itemImage"
@@ -43,10 +59,27 @@
 </template>
 
 <script setup>
+import { computed, ref } from 'vue';
 import { useBurgerStore } from '@/stores/burger';
 import MenuCards from '@/components/MenuCards.vue';
 import MakeYourWish from '@/components/MakeYourWish.vue';
-
 const burgerStore = useBurgerStore();
 const burgers = burgerStore.burgers;
+const selectedFilter = ref('');
+
+const filteredBurgers = computed(() => {
+  if (!selectedFilter.value) return burgers;
+  switch (selectedFilter.value) {
+    case 'lowToHigh':
+      return [...burgers].sort((a, b) => parseFloat(a.itemPrice) - parseFloat(b.itemPrice));
+    case 'highToLow':
+      return [...burgers].sort((a, b) => parseFloat(b.itemPrice) - parseFloat(a.itemPrice));
+    case 'lowCalorie':
+      return [...burgers].sort((a, b) => a.itemEnergy - b.itemEnergy);
+    case 'quickPrep':
+      return burgers.filter(burger => burger.itemTime <= 15);
+    default:
+      return burgers;
+  }
+});
 </script>
