@@ -100,10 +100,10 @@ export default defineComponent({
 </script>
 
 <template>
-  <main class="w-full min-h-screen p-4 flex flex-row justify-between">
+  <main class="w-full min-h-screen p-4 flex flex-col-reverse md:flex-row justify-between">
 
     <div class="min-h-9 p-4 relative">
-      <div class="sticky top-[300px] mt-10 bg-black-primary p-5 rounded-3xl">
+      <div class="static md:sticky top-[300px] mt-10 bg-black-primary p-5 rounded-3xl">
         <h2 class="text-5xl font-bold mb-4 text-center font-PacificoRegular text-light-primary">Your Burger</h2>
         <ul>
           <li v-for="(item, key) in selectedItems" :key="key" class="mb-2 text-light-primary">

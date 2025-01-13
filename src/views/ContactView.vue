@@ -37,7 +37,7 @@ export default defineComponent({
 
     gsap.from(".info-box", {
       opacity: 0,
-      x: -100,
+      x: 0,
       duration: 1.5,
       ease: "power4.out",
       delay: 2
@@ -100,7 +100,7 @@ export default defineComponent({
     <div class="absolute bottom-44 -right-[120px] block z-10">
       <img src="../assets/plus.svg">
     </div>
-    <div class="w-full h-auto md:h-96 flex flex-col md:flex-row justify-between">
+    <div class="w-full h-full md:h-96 flex flex-col md:flex-row">
         <div class="bg-transparent p-5 text-center flex flex-col items-center md:border-r-2 md:border-gray-secondary w-full transform transition-transform duration-300 hover:rotate-2 hover:scale-105 info-box">
           <Icon icon="mdi:clock-outline" class="h-32 w-32 text-orange-primary mt-4" />
           <h4 class="text-4xl font-AntonRegular text-light-primary">Open Times</h4>

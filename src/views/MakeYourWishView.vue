@@ -16,7 +16,7 @@
     <div class="flex flex-row items-center justify-center">
       <p class="text-center max-w-[700px] text-gray-secondary mb-10 mt-3 px-12 z-20 wish-description">Design your perfect burger just the way you want it! With a variety of fresh ingredients and limitless options, you can customize every detail to suit your taste. Whether you prefer a classic flavor or something more adventurous, we’ll make it exactly how you like it – your burger, your way.</p>
     </div>
-    <div>
+    <div class="mb-64 md:mb-0">
       <Generator />
     </div>
   </section>
