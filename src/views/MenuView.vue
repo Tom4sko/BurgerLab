@@ -16,7 +16,6 @@
       </p>
     </div>
 
-    <!-- Filtrovanie -->
     <div class="flex flex-col md:flex-row items-center justify-between px-12 md:px-24 lg:px-44 mb-10 filter-section">
       <div class="flex flex-col md:flex-row items-center gap-4">
         <label class="text-light-primary text-2xl font-PacificoRegular">Sort by:</label>

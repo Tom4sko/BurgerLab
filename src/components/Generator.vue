@@ -139,9 +139,3 @@ export default defineComponent({
     </div>
   </main>
 </template>
-
-
-
-
-
-

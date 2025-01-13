@@ -5,8 +5,8 @@ export type Burger = {
   itemImage: string;
   itemDescription: string;
   itemPrice: string;
-  itemWeight: string;
-  itemTime: string;
+  itemWeight: number;
+  itemTime: number;
   itemMilk: string;
   itemNutrient: string;
   itemEnergy: string;

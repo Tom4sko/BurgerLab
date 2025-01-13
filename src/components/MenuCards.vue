@@ -22,11 +22,11 @@ export default defineComponent({
       required: true,
     },
     itemWeight: {
-      type: String,
+      type: Number,
       required: true,
     },
     itemTime: {
-      type: String,
+      type: Number,
       required: true,
     },
     itemMilk: {
