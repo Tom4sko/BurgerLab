@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import MenuView from '../views/MenuView.vue'
+import MenuView from '@/views/MenuView.vue'
 import ContactView from '../views/ContactView.vue'
 import ErrorView from '../views/ErrorView.vue'
 import MakeYourWishView from '../views/MakeYourWishView.vue'

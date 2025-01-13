@@ -39,7 +39,7 @@ export default defineComponent({
     // Add burger to cart
     const addToCart = () => {
       if (burgerData.value) {
-        cartStore.addItem(burgerData.value);
+        cartStore.addItem(burgerData.value as any);
         cartMessage.value = 'Burger has been added to the shopping cart!';
         setTimeout(() => {
           cartMessage.value = '';
