@@ -99,38 +99,49 @@ export default defineComponent({
 });
 </script>
 
-
 <template>
-  <main class="w-full h-auto p-4">
-    <div v-for="slider in sliders" :key="slider.name" class="mb-6">
-      <h2 class="text-2xl font-bold mb-2 text-center font-AntonRegular text-light-primary">{{ slider.name }}</h2>
-      <div class="relative w-full flex justify-center items-center min-h-[350px]">
-        <button @click="prevImage(slider.name)" class="absolute left-0 lg:left-[200px] bg-orange-primary text-light-primary p-3 rounded-full">
-          <Icon icon="icon-park-outline:left" class="size-7 text-gray-secondary" />
+  <main class="w-full min-h-screen p-4 flex flex-row justify-between">
+
+    <div class="min-h-9 p-4 relative">
+      <div class="sticky top-[300px] mt-10 bg-black-primary p-5 rounded-3xl">
+        <h2 class="text-5xl font-bold mb-4 text-center font-PacificoRegular text-light-primary">Your Burger</h2>
+        <ul>
+          <li v-for="(item, key) in selectedItems" :key="key" class="mb-2 text-light-primary">
+            <strong class="text-orange-primary text-xl mr-2">{{ key }}:</strong>
+            {{ item.name }}
+          </li>
+        </ul>
+        <button @click="addToCart" class="mt-4 uppercase text-black-primary bg-orange-primary px-12 py-3 rounded-3xl font-bold font-AntonRegular text-xl hover:bg-gray-primary hover:text-light-primary hover:scale-105 ease-in transition-all">
+          Add to Cart
         </button>
-        <div class="flex justify-center items-center">
-          <img
-            :src="slider.items[slider.currentIndex]?.img"
-            :alt="slider.items[slider.currentIndex]?.name"
-            class="w-[300px] h-auto object-contain rounded" />
-        </div>
-        <button @click="nextImage(slider.name)" class="absolute right-0 lg:right-[200px] bg-orange-primary text-light-primary p-3 rounded-full">
-          <Icon icon="icon-park-outline:right" class="size-7 text-gray-secondary" />
-        </button>
+        <p v-if="cartMessage" class="mt-4 text-center text-green-500 font-bold">{{ cartMessage }}</p>
       </div>
     </div>
-    <div class="mt-10">
-      <h2 class="text-5xl font-bold mb-4 text-center font-PacificoRegular text-light-primary">Your Burger</h2>
-      <ul>
-        <li v-for="(item, key) in selectedItems" :key="key" class="mb-2 text-light-primary">
-          <strong class="text-orange-primary text-xl mr-2">{{ key }}:</strong>
-          {{ item.name }}
-        </li>
-      </ul>
-      <button @click="addToCart" class=" mt-4 z-20 uppercase text-black-primary bg-orange-primary px-12 py-3 rounded-3xl font-bold font-AntonRegular text-xl hover:bg-gray-primary hover:text-light-primary hover:scale-105 ease-in transition-all">
-        Add to Cart
-      </button>
-      <p v-if="cartMessage" class="mt-4 text-center text-green-500 font-bold">{{ cartMessage }}</p>
+
+    <div class="lg:w-2/5 p-4">
+      <div v-for="slider in sliders" :key="slider.name" class="mb-6 max-w-[860px]">
+        <h2 class="text-2xl font-bold mb-2 text-center font-AntonRegular text-light-primary">{{ slider.name }}</h2>
+        <div class="relative w-full flex justify-center items-center min-h-[350px]">
+          <button @click="prevImage(slider.name)" class="absolute left-0 lg:left-[200px] bg-orange-primary text-light-primary p-3 rounded-full">
+            <Icon icon="icon-park-outline:left" class="size-7 text-gray-secondary" />
+          </button>
+          <div class="flex justify-center items-center">
+            <img
+              :src="slider.items[slider.currentIndex]?.img"
+              :alt="slider.items[slider.currentIndex]?.name"
+              class="w-[300px] h-auto object-contain rounded" />
+          </div>
+          <button @click="nextImage(slider.name)" class="absolute right-0 lg:right-[200px] bg-orange-primary text-light-primary p-3 rounded-full">
+            <Icon icon="icon-park-outline:right" class="size-7 text-gray-secondary" />
+          </button>
+        </div>
+      </div>
     </div>
   </main>
 </template>
+
+
+
+
+
+
